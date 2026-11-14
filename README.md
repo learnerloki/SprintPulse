@@ -1,147 +1,160 @@
-<<<<<<< HEAD
-# SprintPulse — Agile Sprint Tracker
+# SprintPulse
 
-> **Sankar Group Front-End Development Internship Assignment (48-Hour Deadline)**  
-> A lightweight, responsive SaaS landing page and interactive sprint tracker designed for modern agile development teams.
+### Keep sprints on track. Without the chaos.
 
----
+SprintPulse is a lightweight Agile sprint tracking platform designed to make task management more organized and easier to follow.
 
-## 🚀 Live Demo & Repository
-- **GitHub Repository:** [SprintPulse on GitHub](https://github.com/YOUR_USERNAME/sprintpulse) *(Replace with your repo link before submitting)*
-- **Live Deployment:** [SprintPulse Live](https://YOUR_USERNAME.github.io/sprintpulse/) *(Replace with your deployment URL before submitting)*
+It brings together an interactive Kanban board, task management, and a calendar view in a clean, responsive interface. Users can create tasks, assign priorities, track progress, and manage deadlines without needing an account or additional software.
 
 ---
 
-## 📋 Project Overview
+## Screenshots
 
-**SprintPulse** is a clean, dark-mode SaaS product interface built with zero external framework dependencies. It showcases modern front-end engineering principles:
-1. **Interactive SaaS Landing Page:** Sticky navigation with active scroll-spy, hero section with CSS Kanban mockup, core feature highlights, "How It Works" workflow, 3-tier pricing matrix, and demo request contact form with real-time validation.
-2. **Live Task Management Demo:** Embedded interactive Kanban board (To Do, In Progress, Done) with priority indicators, team assignees, full CRUD operations (Add, Edit, Delete), and offline `localStorage` persistence.
-3. **Interactive Calendar View:** Multi-month calendar visualization with task chips, navigation controls, and direct task inspection.
+### Desktop — Landing Page
 
----
+![SprintPulse Landing Page](screenshots/01-desktop.png)
 
-## 🛠️ Technologies Used
+### Interactive Sprint Dashboard
 
-- **HTML5:** Semantic markup (`<nav>`, `<section>`, `<dialog>`, `<form>`, `<button>`, ARIA attributes).
-- **CSS3:** Custom design system using CSS variables, Flexbox, CSS Grid, glassmorphism, responsive media queries, and smooth transitions.
-- **Vanilla JavaScript (ES6+):** Pure client-side state machine, event delegation pattern, DOM sanitization (`escapeHtml`), and `localStorage` API.
-- **Google Fonts:** Typography powered by `Bungee` (display) and `Rubik` (body).
+![SprintPulse Dashboard](screenshots/02-dashboard.png)
+
+### Mobile Layout
+
+![SprintPulse Mobile View](screenshots/03-mobile.png)
 
 ---
-
-## 💻 Local Setup & Run Instructions
-
-No build tools, bundlers, or `node_modules` required.
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/sprintpulse.git
-   cd sprintpulse
-   ```
-2. **Open in your browser:**
-   - Simply double-click `index.html` to open it in Chrome, Edge, Safari, or Firefox.
-   - Or use VS Code Live Server extension: right-click `index.html` and choose **"Open with Live Server"**.
-
----
-
-## 📐 Design Choices & Architecture
-
-- **Dark-Theme Design System:** Built with an intentional surface scale (`#0b101e` canvas → `#131827` cards → `#1e2536` hover states) and cobalt blue accents (`#1d4ed8`) avoiding eye fatigue while maintaining WCAG contrast ratios.
-- **Single Source of Truth (`state`):** State is unified in a single immutable-like JavaScript object. Any modification (add, edit, delete, status change) synchronizes with `localStorage` and triggers pure re-renders.
-- **Event Delegation:** Container-level event listeners with `data-action` attributes handle task mutations, preventing memory leaks and avoiding inline DOM handler antipatterns.
-- **Security & Hygiene:** String interpolation through `escapeHtml()` prevents XSS injection from task inputs. Modal interactions utilize the native `<dialog>` API with custom overlays, replacing native browser alerts and confirms.
-- **Responsive Layout:** Custom breakpoints (860px, 768px, 640px) ensuring fluid card wrapping, hamburger navigation toggle, and horizontally scrollable calendar grids on smaller screens.
-
----
-
-## 💡 Challenges Solved (5–8 Line Explanation)
-
-1. **Calendar Date-Math & Day-Overflows:** Standard JavaScript date mutations often produce month drift (e.g., advancing from Jan 31 pushes into March). This was solved by normalizing date calculations to the 1st of each month before applying month offsets.
-2. **Accessible Native Modal Without Stacking Context Conflicts:** Browser native `<dialog>` elements create top-layer backdrops that can clash with fixed headers. This was resolved by pairing transparent native backdrops with styled CSS overlay containers.
-3. **Zero-Lag Interactive Demo with Empty State Prevention:** First-time visitors are greeted with pre-seeded agile tasks so the demo never displays an unengaging blank slate, while the "Reset Demo" control allows resetting back to sample data at any time.
-
----
-
-## 📸 Screenshots
-
-| Desktop View | Mobile Responsive View |
-| :---: | :---: |
-| *(Capture desktop landing page & save to `screenshots/desktop.png`)* | *(Capture mobile layout with hamburger & save to `screenshots/mobile.png`)* |
-
----
-
-## 📄 License
-MIT License. Created for the Sankar Group Front-End Development Internship Assessment.
-=======
-# To-Do List App
-
-A simple and user-friendly task management application built with **HTML, CSS, and Vanilla JavaScript**. It allows users to organize daily tasks, manage task details, and save their data directly in the browser.
 
 ## Features
 
-- **Add Tasks:** Create tasks with a title, date, and description.
-- **Edit Tasks:** Update existing task details.
-- **Delete Tasks:** Remove tasks that are no longer needed.
-- **Local Storage:** Automatically saves tasks in the browser and restores them after page reloads.
-- **Unsaved Changes Protection:** Confirmation dialog helps prevent accidental loss of form changes.
-- **Responsive Design:** Adapts to smaller screens for a better mobile experience.
-- **Interactive UI:** Clean layout with styled forms, buttons, and task cards.
+### Sprint & Task Management
 
-## Technologies Used
+- Create tasks with titles, descriptions, and due dates.
+- Edit and delete existing tasks.
+- Assign tasks to team members.
+- Set task priorities: High, Medium, and Low.
+- Update task status as work progresses.
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Browser Local Storage
+### Interactive Kanban Board
+
+- Organize tasks into three workflow stages:
+  - To Do
+  - In Progress
+  - Done
+- View task details and manage tasks directly from the board.
+- Automatically update task counts when tasks change.
+
+### Calendar View
+
+- View scheduled tasks in a monthly calendar.
+- Navigate between previous and upcoming months.
+- Highlight the current date.
+- Select a task from the calendar to open its editing interface.
+
+### Additional Functionality
+
+- Switch between Kanban and Calendar views.
+- Save tasks using browser LocalStorage.
+- Restore sample tasks using the Reset Demo option.
+- Display toast notifications and custom confirmation dialogs.
+- Validate contact form inputs and display a submission confirmation.
+- Responsive navigation for smaller screens.
+
+---
+
+## Technology Stack
+
+| Technology        | Purpose                                 |
+| ----------------- | --------------------------------------- |
+| HTML5             | Structure and content                   |
+| CSS3              | Styling, layouts, and responsive design |
+| JavaScript (ES6+) | Application logic and interactivity     |
+| LocalStorage      | Browser-based data persistence          |
+| Google Fonts      | Typography                              |
+
+SprintPulse is built using vanilla JavaScript without frontend frameworks or external UI libraries.
+
+---
 
 ## Getting Started
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/learnerloki/to-do-list.git
-   ```
-2. Open the project folder.
-3. Launch `index.html` in your browser.
+### Prerequisites
 
-No additional dependencies or installation steps are required.
+- A modern web browser.
+- Visual Studio Code (recommended, but optional).
+- Live Server extension (optional).
+
+### Installation
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/learnerloki/sprintpulse.git
+```
+
+**2. Navigate to the project directory**
+
+```bash
+cd sprintpulse
+```
+
+**3. Run the application**
+
+Open `index.html` directly in your browser.
+
+Alternatively, open the project in Visual Studio Code and launch it using Live Server.
+
+No package installation, build tools, or backend configuration is required.
+
+---
 
 ## Project Structure
 
 ```text
-todo-app/
+SprintPulse/
+│
 ├── index.html
 ├── styles.css
-└── script.js
+├── script.js
+├── logo.png
+│
+├── screenshots/
+│   ├── 01-desktop.png
+│   ├── 02-demo.png
+|   |-  03-contact.png
+│   └── 04-mobile.png
+│
+└── README.md
 ```
 
-## What I Learned
+---
 
-- Manipulating the DOM using JavaScript.
-- Handling form submissions and user interactions.
-- Performing CRUD operations on task data.
-- Persisting application data with Local Storage.
-- Creating responsive layouts using CSS.
-- Managing form states and confirming unsaved changes.
+## Design Choices & Challenges
 
-## Future Improvements
+SprintPulse uses a clean SaaS-style layout with consistent spacing, readable typography, and a clear visual hierarchy to keep the interface easy to navigate.
 
-- Mark tasks as completed.
-- Add task search and filtering.
-- Sort tasks by date or priority.
-- Add task categories and deadlines.
-- Improve accessibility and input validation.
+A few implementation challenges involved keeping date handling consistent across time zones, maintaining valid task data in LocalStorage, and ensuring both the Kanban board and calendar reflected the same task state.
 
-  ## Project Preview
-  
-  <img width="1917" height="1078" alt="Screenshot 2026-10-11 075229" src="https://github.com/user-attachments/assets/f04e2e15-480f-402f-8237-f197d433e1e5" />
-  <img width="1917" height="1078" alt="Screenshot 2026-10-11 075239" src="https://github.com/user-attachments/assets/722af44d-6582-4f0d-a828-7ba96b7e66ef" />
-  <img width="1917" height="1077" alt="Screenshot 2026-10-11 075409" src="https://github.com/user-attachments/assets/8dcf78ef-99ed-4ee6-ace7-be42c40fbfe6" />
+I handled date formatting using local date values and normalized calendar navigation to avoid common JavaScript date-related issues.
 
+LocalStorage loading also accounts for missing or malformed data, while a migration step provides default values for older task records.
 
+Since task cards are dynamically re-rendered, event delegation was used to keep edit and delete interactions working without repeatedly attaching event listeners.
 
+User-entered task content is escaped before being inserted into the HTML, helping prevent unintended HTML or script injection.
 
-## License
+The interface also uses custom dialogs, inline validation, and responsive layouts to provide consistent interactions across desktop and mobile screens.
 
-This project is available for educational and personal use.
->>>>>>> origin/main
+---
+
+## Project Scope
+
+SprintPulse is a frontend-only application.
+
+- Task information is stored locally in the browser.
+- There is no backend, database, or user authentication.
+- The contact form demonstrates client-side validation and simulated submission; it does not send messages to a server.
+- Pricing plans are illustrative and do not process payments.
+
+---
+
+**SprintPulse — Plan your work. Track your progress. Finish your sprints.**
