@@ -12,15 +12,25 @@ It brings together an interactive Kanban board, task management, and a calendar 
 
 ### Desktop — Landing Page
 
-![SprintPulse Landing Page](screenshots/01-desktop.png)
+<img width="1917" height="1078" alt="Screenshot 2026-11-14 230109" src="https://github.com/user-attachments/assets/38e9ae4b-ca27-4a79-9d70-a4751949db67" />
 
-### Interactive Sprint Dashboard
+### Demo pages
 
-![SprintPulse Dashboard](screenshots/02-dashboard.png)
+<img width="1917" height="1078" alt="Screenshot 2026-11-14 230131" src="https://github.com/user-attachments/assets/7fef7b56-713a-454a-bdab-bc165af56c16" />
+
+<img width="1908" height="1078" alt="Screenshot 2026-11-14 230151" src="https://github.com/user-attachments/assets/4e2e1b96-8e55-4c51-bbc7-f6b7c08aaf29" />
+
+<img width="1917" height="1078" alt="Screenshot 2026-11-14 230340" src="https://github.com/user-attachments/assets/6e81b296-7307-404e-bfb0-c1fe0fa63acd" />
+
+<img width="1917" height="1078" alt="Screenshot 2026-11-14 231057" src="https://github.com/user-attachments/assets/6cf874ae-7b52-4753-a6d9-c75e529ab219" />
+
+### Contact Layout
+
+<img width="1917" height="1078" alt="Screenshot 2026-11-14 230206" src="https://github.com/user-attachments/assets/ba05a8ee-e23c-453a-a0cd-acf9e782afc8" />
 
 ### Mobile Layout
 
-![SprintPulse Mobile View](screenshots/03-mobile.png)
+<img width="1080" height="2408" alt="mobile" src="https://github.com/user-attachments/assets/a675892d-8783-48d9-a505-a368e35c22ec" />
 
 ---
 
@@ -110,20 +120,17 @@ No package installation, build tools, or backend configuration is required.
 ## Project Structure
 
 ```text
-SprintPulse/
+ScreenShots/
 │
-├── index.html
-├── styles.css
-├── script.js
-├── logo.png
+├── Demo/
+│   ├── Add-Task.png
+│   ├── Calendar.png
+│   ├── Kanban-preview.png
+│   └── Pricing.png
 │
-├── screenshots/
-│   ├── 01-desktop.png
-│   ├── 02-demo.png
-|   |-  03-contact.png
-│   └── 04-mobile.png
-│
-└── README.md
+├── 01-Desktop-view.png
+├── 02-Contact.png
+└── 03-Mobile.png
 ```
 
 ---
