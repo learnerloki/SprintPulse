@@ -1,58 +1,796 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SprintPulse | Agile Sprint Tracker</title>
+    <meta
+      name="description"
+      content="Lightweight sprint tracker for agile teams. Plan, assign, and track tasks without the chaos."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%233b82f6'/><text x='50%25' y='68%25' font-size='50' font-family='sans-serif' font-weight='bold' fill='white' text-anchor='middle'>SP</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo" aria-label="SprintPulse home">
+          <img src="logo.png" alt="SP" id="logo" />
+          <span class="logo-text">SprintPulse</span>
+        </a>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To-Do App From Local Storage</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+        <div class="nav-links" id="nav-links">
+          <a href="#features" data-section="features">Features</a>
+          <a href="#how-it-works" data-section="how-it-works">How It Works</a>
+          <a href="#pricing" data-section="pricing">Pricing</a>
+          <a href="#contact" data-section="contact">Contact</a>
+        </div>
 
-<body>
-  <main>
-    <h1>Todo App</h1>
-    <div class="todo-app">
-      <button id="open-task-form-btn" class="btn large-btn">
-        Add New Task
-      </button>
-      <form class="task-form hidden" id="task-form">
-        <div class="task-form-header">
-          <button id="close-task-form-btn" class="close-task-form-btn" type="button" aria-label="close">
-            <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px"><path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)" /><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)" /></svg>
-          </button>
+        <a href="#pricing" class="btn btn-primary nav-cta">Get Started</a>
+
+        <button
+          class="nav-toggle"
+          id="nav-hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-visual">
+            <div class="kanban-mock">
+              <div class="mock-window-header">
+                <div class="mock-window-dots">
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                </div>
+                <div class="mock-window-title">Sprint 14 • 4 days left</div>
+              </div>
+              <div class="mock-columns">
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <span>To Do</span>
+                    <span class="mock-badge">2</span>
+                  </div>
+                  <div class="kanban-col-body">
+                    <div class="mock-card">
+                      <div class="mock-card-top">
+                        <span class="mock-tag">Auth</span>
+                        <span class="dot high" title="High Priority"></span>
+                      </div>
+                      <div class="mock-card-title">Fix login validation</div>
+                    </div>
+                    <div class="mock-card">
+                      <div class="mock-card-top">
+                        <span class="mock-tag">Docs</span>
+                        <span class="dot low" title="Low Priority"></span>
+                      </div>
+                      <div class="mock-card-title">Update API docs</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <span>In Progress</span>
+                    <span class="mock-badge">1</span>
+                  </div>
+                  <div class="kanban-col-body">
+                    <div class="mock-card">
+                      <div class="mock-card-top">
+                        <span class="mock-tag">UI</span>
+                        <span class="dot high" title="High Priority"></span>
+                      </div>
+                      <div class="mock-card-title">Dashboard redesign</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="kanban-col">
+                  <div class="kanban-col-header">
+                    <span>Done</span>
+                    <span class="mock-badge">1</span>
+                  </div>
+                  <div class="kanban-col-body">
+                    <div class="mock-card">
+                      <div class="mock-card-top">
+                        <span class="mock-tag">DevOps</span>
+                        <span class="dot done" title="Completed"></span>
+                      </div>
+                      <div class="mock-card-title">Setup CI/CD</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-pulse"></span>
+              Lightweight Agile Tracker
+            </div>
+            <h1 class="hero-title" id="hero-title">
+              Keep sprints on track.<br />Without the chaos.
+            </h1>
+            <p class="hero-sub">
+              Plan, assign, and ship faster with real-time visual boards. Built
+              for modern teams that value clarity over complexity.
+            </p>
+            <div class="hero-ctas">
+              <a href="#pricing" class="btn btn-primary btn-large"
+                >Start Free Trial</a
+              >
+              <a href="#demo" class="btn btn-secondary btn-large"
+                >View Live Demo</a
+              >
+            </div>
+            <div class="hero-trust">
+              <span class="trust-item"
+                ><span class="trust-check">✓</span> Free tier</span
+              >
+              <span class="trust-item"
+                ><span class="trust-check">✓</span> No credit card</span
+              >
+              <span class="trust-item"
+                ><span class="trust-check">✓</span> 2-min setup</span
+              >
+            </div>
+          </div>
         </div>
-        <div class="task-form-body">
-          <label class="task-form-label" for="title-input">Title</label>
-          <input required type="text" class="form-control" id="title-input" value="" />
-          <label class="task-form-label" for="date-input">Date</label>
-          <input type="date" class="form-control" id="date-input" value="" />
-          <label class="task-form-label" for="description-input">Description</label>
-          <textarea class="form-control" id="description-input" cols="30" rows="5"></textarea>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="features-title">
+            Everything a Sprint Needs
+          </h2>
+          <p class="section-sub">
+            Built for small agile teams who want to ship, not configure.
+          </p>
         </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <span class="feature-symbol">▦</span>
+            </div>
+            <h3 class="feature-title">Sprint Boards</h3>
+            <p class="feature-text">
+              Visual Kanban boards for To Do, In Progress, and Done. Move your
+              sprint into clarity.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <span class="feature-symbol">▲</span>
+            </div>
+            <h3 class="feature-title">Smart Priority</h3>
+            <p class="feature-text">
+              High, Medium, Low priority on every task. Know what to tackle
+              first at a glance.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <span class="feature-symbol">◈</span>
+            </div>
+            <h3 class="feature-title">Team Assignment</h3>
+            <p class="feature-text">
+              Assign every task to an owner. See workload at a glance.
+            </p>
+          </div>
+          <div class="feature-card feature-card-premium">
+            <div class="feature-icon" aria-hidden="true">
+              <span class="feature-symbol">◫</span>
+            </div>
+            <h3 class="feature-title">
+              Calendar View <span class="feature-badge">Team</span>
+            </h3>
+            <p class="feature-text">
+              See every due date on a month calendar. Plan sprints by date.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="how-title">How It Works</h2>
+          <p class="section-sub">Three steps to a better sprint.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Create Your Sprint</h3>
+            <p class="step-text">
+              Set a sprint goal and add tasks with due dates and priorities.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3 class="step-title">Assign &amp; Prioritize</h3>
+            <p class="step-text">
+              Assign owners, set High/Medium/Low, and focus on what matters
+              first.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3 class="step-title">Track Daily</h3>
+            <p class="step-text">
+              Use Today / This Week views and the dashboard to run standups in
+              minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section id="demo" class="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="demo-title">Try SprintPulse Live</h2>
+          <p class="section-sub">
+            No sign-up needed. Add, edit, and switch views. Your data stays in
+            your browser.
+          </p>
+        </div>
+
+        <div class="demo-banner">
+          <span class="demo-banner-text"
+            >Calendar preview — Team/Enterprise feature unlocked in this
+            demo.</span
+          >
+        </div>
+
+        <div class="demo-toolbar">
+          <div class="view-toggle" role="group" aria-label="Demo view">
+            <button
+              class="view-btn view-btn-active"
+              data-view="kanban"
+              aria-pressed="true"
+            >
+              Kanban
+            </button>
+            <button class="view-btn" data-view="calendar" aria-pressed="false">
+              Calendar
+            </button>
+          </div>
+          <div class="demo-actions">
+            <button class="btn btn-secondary" id="open-task-form-btn">
+              + Add Task
+            </button>
+            <button class="btn btn-ghost" id="reset-demo-btn">
+              Reset Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- Kanban View -->
+        <div class="demo-view kanban-view" id="kanban-view">
+          <div class="kanban">
+            <div class="kanban-col">
+              <div class="kanban-col-header">
+                <span>To Do</span>
+                <span class="kanban-col-count" id="count-todo">0</span>
+              </div>
+              <div
+                class="kanban-col-body"
+                id="board-todo"
+                data-status="todo"
+                role="list"
+              ></div>
+            </div>
+            <div class="kanban-col">
+              <div class="kanban-col-header">
+                <span>In Progress</span>
+                <span class="kanban-col-count" id="count-progress">0</span>
+              </div>
+              <div
+                class="kanban-col-body"
+                id="board-progress"
+                data-status="progress"
+                role="list"
+              ></div>
+            </div>
+            <div class="kanban-col">
+              <div class="kanban-col-header">
+                <span>Done</span>
+                <span class="kanban-col-count" id="count-done">0</span>
+              </div>
+              <div
+                class="kanban-col-body"
+                id="board-done"
+                data-status="done"
+                role="list"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar View -->
+        <div class="demo-view calendar-view hidden" id="calendar-view">
+          <div class="calendar-header">
+            <button
+              class="calendar-nav-btn"
+              id="cal-prev"
+              aria-label="Previous month"
+            >
+              ‹
+            </button>
+            <h3 class="calendar-title" id="calendar-title">Sprint Calendar</h3>
+            <button
+              class="calendar-nav-btn"
+              id="cal-next"
+              aria-label="Next month"
+            >
+              ›
+            </button>
+          </div>
+          <div class="calendar-grid" id="calendar-grid" role="grid"></div>
+          <p class="calendar-empty" id="calendar-empty" style="display: none">
+            No tasks this month.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="pricing-title">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="section-sub">Start free, scale with your team.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-name">Free</div>
+            <div class="pricing-price">
+              ₹0 <span class="pricing-period">forever</span>
+            </div>
+            <p class="pricing-desc">For individuals and students.</p>
+            <ul class="pricing-list">
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> 1 user
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> 3 sprints, 50
+                tasks/sprint
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Kanban + Priority
+              </li>
+              <li>
+                <span class="pricing-check no" aria-hidden="true">✗</span
+                ><span class="sr-only">Not included:</span> Calendar view
+              </li>
+              <li>
+                <span class="pricing-check no" aria-hidden="true">✗</span
+                ><span class="sr-only">Not included:</span> Team assignment
+              </li>
+            </ul>
+            <a href="#demo" class="btn btn-secondary btn-full pricing-btn"
+              >Start Free</a
+            >
+          </div>
+          <div class="pricing-card popular">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-name">Team</div>
+            <div class="pricing-price">
+              ₹499 <span class="pricing-period">/ user / mo</span>
+            </div>
+            <p class="pricing-desc">For agile teams of 5–20.</p>
+            <ul class="pricing-list">
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Up to 20 users
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Unlimited sprints &amp;
+                tasks
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Kanban + Priority +
+                Eisenhower
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Calendar (Month + Week)
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Team assignment +
+                workload
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-full pricing-btn"
+              >Start 14-Day Trial</a
+            >
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-name">Enterprise</div>
+            <div class="pricing-price">
+              Custom <span class="pricing-period">contact sales</span>
+            </div>
+            <p class="pricing-desc">For companies of 20+.</p>
+            <ul class="pricing-list">
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Unlimited users
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Unlimited sprints &amp;
+                tasks
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> All Team features
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> Advanced sprint reports
+              </li>
+              <li>
+                <span class="pricing-check ok" aria-hidden="true">✓</span
+                ><span class="sr-only">Included:</span> 24/7 dedicated support
+              </li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary btn-full pricing-btn"
+              >Contact Sales</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Request a Demo -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Request a Demo Form Card -->
+          <div class="contact-form-card">
+            <div class="form-header">
+              <span class="form-badge">Interactive Demo</span>
+              <h2 class="section-title" id="contact-title">
+                Request a Live Demo
+              </h2>
+              <p class="section-sub-form">
+                See SprintPulse in action with your agile workflow. We'll set up
+                a tailored walkthrough within 24 hours.
+              </p>
+            </div>
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cf-name"
+                    >Full Name
+                    <span class="required" aria-required="true">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="cf-name"
+                    required
+                    placeholder="e.g. Alex Morgan"
+                    aria-describedby="cf-name-error"
+                  />
+                  <span
+                    class="form-error"
+                    id="cf-name-error"
+                    role="alert"
+                  ></span>
+                </div>
+                <div class="form-group">
+                  <label for="cf-email"
+                    >Work Email
+                    <span class="required" aria-required="true">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="cf-email"
+                    required
+                    placeholder="alex@company.com"
+                    aria-describedby="cf-email-error"
+                  />
+                  <span
+                    class="form-error"
+                    id="cf-email-error"
+                    role="alert"
+                  ></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cf-company">Company</label>
+                  <input
+                    type="text"
+                    id="cf-company"
+                    placeholder="e.g. Acme Corp"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="cf-team">Team Size</label>
+                  <select id="cf-team">
+                    <option value="1-5">1–5 people</option>
+                    <option value="6-20">6–20 people</option>
+                    <option value="20-plus">20+ people</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cf-message">Sprint Challenges / Requirements</label>
+                <textarea
+                  id="cf-message"
+                  rows="3"
+                  placeholder="Tell us what you're looking to streamline..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-large btn-full"
+                id="cf-submit"
+              >
+                Schedule Demo Walkthrough
+              </button>
+              <div
+                class="form-toast hidden"
+                id="cf-toast"
+                role="status"
+                aria-live="polite"
+              >
+                Thanks, <span id="cf-toast-name"></span>! We'll contact you
+                within 24 hours.
+              </div>
+            </form>
+          </div>
+
+          <!-- Right Column: Benefits + Get In Touch on bottom right corner above footer -->
+          <div class="contact-sidebar">
+            <div class="demo-benefits-card">
+              <h3 class="benefits-title">What to Expect</h3>
+              <ul class="benefits-list">
+                <li>
+                  <span class="benefit-bullet">✦</span>
+                  <div>
+                    <strong>20-Minute Walkthrough</strong>
+                    <p>
+                      Live review of sprint boards &amp; backlog management.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span class="benefit-bullet">✦</span>
+                  <div>
+                    <strong>Custom Workflow Setup</strong>
+                    <p>Tailored column stages matching your team's process.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="benefit-bullet">✦</span>
+                  <div>
+                    <strong>14-Day Team Pilot</strong>
+                    <p>Full Team tier access with no credit card required.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Get In Touch (Right Corner directly on top of footer) -->
+            <div class="get-in-touch-card">
+              <div class="git-header">
+                <span class="git-status-dot"></span>
+                <h3>Get In Touch</h3>
+              </div>
+              <p class="git-sub">
+                Prefer direct communication? Reach our team anytime:
+              </p>
+              <div class="git-items">
+                <a href="mailto:hello@sprintpulse.com" class="git-item">
+                  <span class="git-icon">&#9993;</span>
+                  <div>
+                    <span class="git-label">Email Us</span>
+                    <span class="git-value">hello@sprintpulse.com</span>
+                  </div>
+                </a>
+                <a href="tel:+918045678900" class="git-item">
+                  <span class="git-icon">&#9742;</span>
+                  <div>
+                    <span class="git-label">Call Support</span>
+                    <span class="git-value">+91 (080) 4567 8900</span>
+                  </div>
+                </a>
+                <div class="git-item">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/128/4300/4300058.png"
+                    alt="HQ"
+                    class="git-img"
+                  />
+                  <div>
+                    <span class="git-label">Office</span>
+                    <span class="git-value"
+                      >Vijayawada, Andhra Pradesh, India</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="logo.png" alt="SP" class="footer-logo-img" />
+              SprintPulse
+            </div>
+            <p class="footer-about">
+              The lightweight sprint tracker for agile teams. Plan sprints,
+              assign owners, and ship on time.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-heading">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#features">Features</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-heading">Contact</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="mailto:hello@sprintpulse.com">hello@sprintpulse.com</a>
+              </li>
+              <li><a href="tel:+918045678900">+91 (080) 4567 8900</a></li>
+              <li><a href="#">Vijayawada, India</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 SprintPulse. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Task Form (reused for Add/Edit) -->
+    <div class="task-form-overlay hidden" id="task-form-overlay"></div>
+    <dialog class="task-form-dialog" id="task-form-dialog">
+      <div class="task-form-header">
+        <h3 id="dialog-title">Add Task</h3>
+        <button
+          class="task-form-close"
+          id="task-form-close"
+          aria-label="Close form"
+        >
+          ×
+        </button>
+      </div>
+      <form id="task-form-inner" novalidate>
+        <div class="form-group">
+          <label for="t-title"
+            >Title <span class="required" aria-required="true">*</span></label
+          >
+          <input
+            type="text"
+            id="t-title"
+            required
+            maxlength="100"
+            aria-describedby="t-title-error"
+          />
+          <span class="form-error" id="t-title-error" role="alert"
+            >Title is required</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="t-date">Due Date</label>
+          <input type="date" id="t-date" />
+        </div>
+        <div class="form-group">
+          <label for="t-description">Description</label>
+          <textarea id="t-description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="t-priority">Priority</label>
+          <select id="t-priority">
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="t-status">Status</label>
+          <select id="t-status">
+            <option value="todo">To Do</option>
+            <option value="progress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="t-assignee">Assign To</label>
+          <select id="t-assignee">
+            <option value="Unassigned">Unassigned</option>
+            <option value="You">You</option>
+            <option value="Rahul Sharma">Rahul Sharma</option>
+            <option value="Priya Patel">Priya Patel</option>
+            <option value="Arjun Reddy">Arjun Reddy</option>
+            <option value="Sneha Iyer">Sneha Iyer</option>
+          </select>
+        </div>
+        <input type="hidden" id="t-id" />
         <div class="task-form-footer">
-          <button id="add-or-update-task-btn" class="btn large-btn" type="submit">
+          <button type="button" class="btn btn-outline" id="task-form-cancel">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary" id="task-form-save">
             Add Task
           </button>
         </div>
       </form>
-      <dialog id="confirm-close-dialog">
-        <form method="dialog">
-          <p class="discard-message-text">Discard unsaved changes?</p>
-          <div class="confirm-close-dialog-btn-container">
-            <button id="cancel-btn" class="btn">
-              Cancel
-            </button>
-            <button id="discard-btn" class="btn">
-              Discard
-            </button>
-          </div>
-        </form>
-      </dialog>
-      <div id="tasks-container"></div>
-    </div>
-  </main>
-  <script src="script.js"></script>
-</body>
+    </dialog>
 
+    <!-- Confirm Dialog (replaces native confirm) -->
+    <div class="task-form-overlay hidden" id="confirm-overlay"></div>
+    <dialog class="task-form-dialog" id="confirm-dialog">
+      <div class="task-form-header">
+        <h3 id="confirm-title">Confirm Action</h3>
+        <button
+          class="task-form-close"
+          id="confirm-close"
+          aria-label="Close dialog"
+        >
+          ×
+        </button>
+      </div>
+      <div class="confirm-body">
+        <p id="confirm-message">Are you sure?</p>
+      </div>
+      <div class="task-form-footer">
+        <button type="button" class="btn btn-outline" id="confirm-cancel">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-danger" id="confirm-confirm">
+          Confirm
+        </button>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
 </html>
